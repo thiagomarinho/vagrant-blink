@@ -1,28 +1,38 @@
-# Vagrant::Blink
+# Vagrant Blink
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/vagrant/blink`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This plugin provides a shortcut to destroy and recreate a virtual machine. In other words, to use `vagrant blink machine` is the same to use `vagrant destroy -f machine && vagrant up machine`. It's particularly useful when you need to destroy and create a machine multiple times, for example, when testing provisioning with [Puppet](https://puppet.com/) modules.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+This project is not yet available in plugins repository. So, you'll need to follow these steps to install it:
 
-```ruby
-gem 'vagrant-blink'
+- Clone this repo:
+
+```
+git clone git@github.com:thiagomarinho/vagrant-blink.git
 ```
 
-And then execute:
+- Then build the gem:
 
-    $ bundle
+```
+gem build vagrant-blink.gemspec
+```
 
-Or install it yourself as:
+- And then install it as a vagrant plugin:
 
-    $ gem install vagrant-blink
+```
+vagrant plugin install vagrant-blink-0.1.0.gem
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+vagrant blink machine
+```
+
+This command will destroy then create the virtual machine.
+
+> Warning: this will destroy the virtual machine without confirmation, so be careful!
 
 ## Development
 
@@ -32,7 +42,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/vagrant-blink/fork )
+1. Fork it ( https://github.com/thiagomarinho/vagrant-blink/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
