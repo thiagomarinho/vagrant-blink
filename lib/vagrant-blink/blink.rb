@@ -27,7 +27,7 @@ module VagrantBlink
       return if !argv
 
       with_target_vms argv do |machine|
-        machine.action :destroy
+        machine.action :destroy, :force_confirm_destroy => true
         machine.action :up
       end
 
